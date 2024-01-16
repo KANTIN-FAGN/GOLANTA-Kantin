@@ -14,6 +14,9 @@ body {
     align-items: center;
     font-family: 'SF Ironsides Bold', sans-serif;
     overflow: hidden;
+    text-shadow: 2px 2px 2px black;
+    color: #ffffff;
+    font-size: 35px;
 }
 
 section {
@@ -29,12 +32,6 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.titre p {
-    text-shadow: 2px 2px 2px black;
-    color: #ffffff;
-    font-size: 35px;
 }
 
 button {
@@ -163,4 +160,11 @@ button:hover .icon-3 {
     100% {
         transform: rotate(0);
     }
+}
+
+.bouton-global {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

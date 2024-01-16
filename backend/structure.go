@@ -1,21 +1,14 @@
 package backend
 
-// Article est une structure qui stock toutes les données d'un article
-type Perso struct {
-	Id     int    `json:"id"`
-	Nom  string `json:"nom"`
+type PersoData struct {
+	ID      string `json:"id"`
+	Nom     string `json:"nom"`
 	Prenom  string `json:"prenom"`
-	Image  string `json:"image"`
-	Fort string `json:"fort"`
-	Faible   string `json:"faible"`
-}
-
-// IndexData est une structure qui gère les données envoyées à la page index
-type IndexData struct {
-	Articles   []Perso
-}
-
-// ArticleData est une structure qui gère les données envoyées à la page index
-type ArticleData struct {
-	Data       map[string]interface{}
+	Age     string `json:"age"`
+	Force   int    `json:"force"`
+	Agility int    `json:"agility"`
+	Taille  int    `json:"taille"`
+	Poids   int    `json:"poids"`
+	Sexe    string `json:"sexe"`
+	Image   string `json:"image"`
 }

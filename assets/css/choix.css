@@ -7,6 +7,11 @@ body {
     overflow: hidden;
 }
 
+button {
+  background: none;
+  border: none;
+}
+
 .global {
   display: flex;
   flex-direction: column;

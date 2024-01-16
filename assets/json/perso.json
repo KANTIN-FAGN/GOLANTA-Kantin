@@ -1,0 +1,14 @@
+[
+    {
+        "id": "1000",
+        "nom": "DANTE",
+        "prenom": "Julien",
+        "age": "18",
+        "force:": "2",
+        "agility": "8",
+        "taille": "190",
+        "poids": "80",
+        "sexe": "1",
+        "image": "tkt"
+    }
+]
