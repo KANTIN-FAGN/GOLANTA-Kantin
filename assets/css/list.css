@@ -1,0 +1,69 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: "SF Ironsides Bold";
+  src: url("http://localhost:8080/static/font/SF Ironsides Bold.ttf")
+    format("truetype");
+  font-style: normal;
+}
+
+body {
+  background-image: url("../img/site/camp.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "SF Ironsides Bold", sans-serif;
+  overflow: hidden;
+  text-shadow: 2px 2px 2px black;
+  color: #ffffff;
+  font-size: 35px;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: -1;
+}
+
+.perso-global {
+  background-color: #fff;
+  width: 600px;
+  height: 400px;
+  background-image: url(../img/site/panneau.png);
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+}
+
+.info-perso {
+  display: flex;
+  flex-direction: column;
+}
+
+.global {
+  height: 100vh;
+  width: 100%;
+}
+
+.nom-prenom {
+    display: flex;
+    gap: 25px;
+}
+
+.perso {
+    display: flex;
+    translate: 80px;
+    gap: 50px;
+}

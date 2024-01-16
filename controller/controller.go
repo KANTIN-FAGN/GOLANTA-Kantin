@@ -30,6 +30,10 @@ func ForumPage(w http.ResponseWriter, r *http.Request) {
 	templates.Temp.ExecuteTemplate(w, "form", nil)
 }
 
+func ListPage(w http.ResponseWriter, r *http.Request) {
+	templates.Temp.ExecuteTemplate(w, "list", nil)
+}
+
 func InitSexeHomme(w http.ResponseWriter, r *http.Request) {
 	sexe = "Homme"
 	img = "/static/img/homme.png"

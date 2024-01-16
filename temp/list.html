@@ -1,0 +1,36 @@
+{{define "list"}}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/list.css" />
+    <title>Liste des personnages</title>
+  </head>
+  <body>
+    <section class="global">
+      {{range .PersoData}}
+      <div class="perso-global">
+        <div class="perso">
+          <div class="image">
+            <img src="{{.Image}}" alt="" />
+          </div>
+          <div class="info-perso">
+            <div class="nom-prenom">
+              <p>.{{Prenom}}</p>
+              <p>{{.Nom}}</p>
+            </div>
+            <div class="tout-le-reste">
+              <p>{{.Sexe}}</p>
+              <p>{{.Age}} ans</p>
+              <p>{{.Taille}} cm</p>
+              <p>{{.Poids}} kg</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{end}}
+    </section>
+  </body>
+</html>
+{{end}}

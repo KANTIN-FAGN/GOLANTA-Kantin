@@ -17,6 +17,7 @@ func Initserv() {
 	http.HandleFunc("/treatment/homme", controller.InitSexeHomme)
 	http.HandleFunc("/treatment/femme", controller.InitSexeFemme)
 	http.HandleFunc("/form", controller.ForumPage)
+	http.HandleFunc("/list", controller.ListPage)
 
 	http.HandleFunc("/", controller.DefaultHandler)
 
