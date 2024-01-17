@@ -28,6 +28,7 @@ func DisplayChoix(w http.ResponseWriter, r *http.Request) {
 
 func ForumPage(w http.ResponseWriter, r *http.Request) {
 	templates.Temp.ExecuteTemplate(w, "form", nil)
+	http.Redirect(w, r, "/list", http.StatusSeeOther)
 }
 
 func ListPage(w http.ResponseWriter, r *http.Request) {
@@ -45,4 +46,3 @@ func InitSexeFemme(w http.ResponseWriter, r *http.Request) {
 	img = "/static/img/femme.png"
 	http.Redirect(w, r, "/form", http.StatusMovedPermanently)
 }
-

@@ -5,8 +5,7 @@
 
 @font-face {
   font-family: "SF Ironsides Bold";
-  src: url("http://localhost:8080/static/font/SF Ironsides Bold.ttf")
-    format("truetype");
+  src: url("http://localhost:8080/static/font/SF Ironsides Bold.ttf") format("truetype");
   font-style: normal;
 }
 
@@ -58,12 +57,63 @@ body::before {
 }
 
 .nom-prenom {
-    display: flex;
-    gap: 25px;
+  display: flex;
+  gap: 25px;
 }
 
 .perso {
-    display: flex;
-    translate: 80px;
-    gap: 50px;
+  display: flex;
+  translate: 80px;
+  gap: 50px;
+}
+
+.supp form {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+
+}
+
+.supp form .delete-button {
+  width: 100%;
+  height: 100%;
+  background-image: url('../img/site/poubelle.png');
+  background-size: 100% 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: none;
+  background-color: transparent;
+}
+
+.supp form:hover .delete-button {
+  background-image: url('../img/site/delete.png');
+}
+
+.supp-modif {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modif form {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+
+}
+
+.modif form .modifier {
+  width: 100%;
+  height: 100%;
+  background-image: url('../img/site/modif.png');
+  background-size: 100% 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: none;
+  background-color: transparent;
+}
+
+.modif form:hover .modifier {
+  background-image: url('../img/site/modifier.png');
 }

@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"golantah/controller"
+	"golantah/backend"
 )
 
 func Initserv() {
@@ -18,6 +19,7 @@ func Initserv() {
 	http.HandleFunc("/treatment/femme", controller.InitSexeFemme)
 	http.HandleFunc("/form", controller.ForumPage)
 	http.HandleFunc("/list", controller.ListPage)
+	http.HandleFunc("/delete", backend.DeletePage)
 
 	http.HandleFunc("/", controller.DefaultHandler)
 
