@@ -14,5 +14,6 @@ func InitTemplate() {
 		fmt.Printf("Erreur template: %v", errTemp.Error())
 		os.Exit(1)
 	}
+
 	Temp = temp
 }

@@ -20,6 +20,7 @@ func Initserv() {
 	http.HandleFunc("/form", controller.ForumPage)
 	http.HandleFunc("/list", controller.ListPage)
 	http.HandleFunc("/delete", backend.DeletePage)
+	http.HandleFunc("/submit", backend.RecuDatas)
 
 	http.HandleFunc("/", controller.DefaultHandler)
 

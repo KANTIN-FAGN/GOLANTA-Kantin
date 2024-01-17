@@ -5,8 +5,8 @@ type PersoData struct {
 	Nom     string `json:"nom"`
 	Prenom  string `json:"prenom"`
 	Age     string `json:"age"`
-	Taille  int    `json:"taille"`
-	Poids   int    `json:"poids"`
+	Taille  string   `json:"taille"`
+	Poids   string   `json:"poids"`
 	Sexe    string `json:"sexe"`
 	Image   string `json:"image"`
 }

@@ -12,41 +12,41 @@
 <body>
   <section class="global">
     <div class="perso-global">
+      {{range . }}
       <div class="perso">
         <div class="image">
           <img src="../static/img/site/homme.png" alt="" />
         </div>
         <div class="info-perso">
           <div class="nom-prenom">
-            <p>Prenom</p>
-            <p>Nom</p>
+            <p>{{.Prenom}}</p>
+            <p>{{.Nom}}</p>
           </div>
           <div class="tout-le-reste">
-            <p>Sexe</p>
-            <p>Age ans</p>
-            <p>Taille cm</p>
-            <p>Poids kg</p>
+            <p>{{.Sexe}}</p>
+            <p>{{.Age}}</p>
+            <p>{{.Taille}}</p>
+            <p>{{.Poids}} kg</p>
           </div>
         </div>
         <div class="supp-modif">
           <div class="supp">
             <form action="/delete" method="post">
-              <input type="hidden" name="id" value="{{ .Id }}">
+              <input type="hidden" name="id" value="{{ .ID }}">
               <input type="submit" class="delete-button" value="">
             </form>
           </div>
           <div class="modif">
             <form action="/modif" method="post">
-              <input type="hidden" name="id" value="{{ .Id }}">
+              <input type="hidden" name="id" value="{{ .ID }}">
               <input type="submit" class="modifier" value="">
             </form>
           </div>
         </div>
-
       </div>
+      {{end}}
     </div>
   </section>
 </body>
-
 </html>
 {{end}}

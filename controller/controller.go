@@ -1,8 +1,12 @@
 package controller
 
 import (
+	"golantah/backend"
 	templates "golantah/temp"
 	"net/http"
+	"encoding/json"
+	"fmt"
+	"os"
 )
 
 var sexe string
@@ -32,7 +36,23 @@ func ForumPage(w http.ResponseWriter, r *http.Request) {
 }
 
 func ListPage(w http.ResponseWriter, r *http.Request) {
-	templates.Temp.ExecuteTemplate(w, "list", nil)
+	content, err := os.ReadFile("../perso.json")
+	if err != nil {
+		fmt.Println("Erreur dans la lecture du json : ", err)
+		http.Error(w, "Erreur dans la lecture du JSON", http.StatusInternalServerError)
+		return
+	}
+
+	var allArticles []backend.PersoData
+
+	err = json.Unmarshal(content, &allArticles)
+	if err != nil {
+		fmt.Println("Erreur > ", err.Error())
+		http.Error(w, "Erreur lors de la désérialisation du JSON", http.StatusInternalServerError)
+		return
+	}
+
+	templates.Temp.ExecuteTemplate(w, "list", allArticles)
 }
 
 func InitSexeHomme(w http.ResponseWriter, r *http.Request) {
