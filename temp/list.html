@@ -15,7 +15,7 @@
       {{range . }}
       <div class="perso">
         <div class="image">
-          <img src="../static/img/site/homme.png" alt="" />
+          <img src="{{.Image}}" alt="Image {{.Nom}} {{.Prenom}}" />
         </div>
         <div class="info-perso">
           <div class="nom-prenom">
@@ -31,16 +31,17 @@
         </div>
         <div class="supp-modif">
           <div class="supp">
-            <form action="/delete" method="post">
+            <a href="/delete">
               <input type="hidden" name="id" value="{{ .ID }}">
               <input type="submit" class="delete-button" value="">
-            </form>
+            </a>
           </div>
           <div class="modif">
-            <form action="/modif" method="post">
+            <a href="/modif?char={{.ID}}">
               <input type="hidden" name="id" value="{{ .ID }}">
               <input type="submit" class="modifier" value="">
-            </form>
+            </a>
+          </div>
           </div>
         </div>
       </div>

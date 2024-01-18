@@ -1,16 +1,18 @@
 package controller
 
 import (
-	"golantah/backend"
-	templates "golantah/temp"
-	"net/http"
 	"encoding/json"
 	"fmt"
+	"golantah/backend"
+	templates "golantah/temp"
+	"math/rand"
+	"net/http"
 	"os"
+	"time"
 )
 
-var sexe string
-var img string
+var Sexe string
+var Img string
 
 // DefaultHandler est la fonction qui redirige vers la page 404 en cas de route inconnue
 func DefaultHandler(w http.ResponseWriter, r *http.Request) {
@@ -32,11 +34,10 @@ func DisplayChoix(w http.ResponseWriter, r *http.Request) {
 
 func ForumPage(w http.ResponseWriter, r *http.Request) {
 	templates.Temp.ExecuteTemplate(w, "form", nil)
-	http.Redirect(w, r, "/list", http.StatusSeeOther)
 }
 
 func ListPage(w http.ResponseWriter, r *http.Request) {
-	content, err := os.ReadFile("../perso.json")
+	content, err := os.ReadFile("perso.json")
 	if err != nil {
 		fmt.Println("Erreur dans la lecture du json : ", err)
 		http.Error(w, "Erreur dans la lecture du JSON", http.StatusInternalServerError)
@@ -56,13 +57,99 @@ func ListPage(w http.ResponseWriter, r *http.Request) {
 }
 
 func InitSexeHomme(w http.ResponseWriter, r *http.Request) {
-	sexe = "Homme"
-	img = "/static/img/homme.png"
+	Sexe = "Homme"
+	Img = "/static/img/site/homme.png"
 	http.Redirect(w, r, "/form", http.StatusMovedPermanently)
 }
 
 func InitSexeFemme(w http.ResponseWriter, r *http.Request) {
-	sexe = "Femme"
-	img = "/static/img/femme.png"
+	Sexe = "Femme"
+	Img = "/static/img/site/femme.png"
 	http.Redirect(w, r, "/form", http.StatusMovedPermanently)
+}
+
+func RecuDatas(w http.ResponseWriter, r *http.Request) {
+	r.ParseMultipartForm(10 << 20)
+
+	fmt.Println("here")
+
+	nom := r.FormValue("nom")
+	prenom := r.FormValue("prenom")
+	age := r.FormValue("age")
+	taille := r.FormValue("taille")
+	poids := r.FormValue("poids") // Correction du nom du champ
+
+	fmt.Println(nom)
+	fmt.Println(prenom)
+
+	// Lire le fichier JSON existant
+	jsonFile, err := os.ReadFile("perso.json")
+	if err != nil {
+		fmt.Println("Erreur en lisant le fichier JSON :", err)
+		http.Error(w, "Erreur en lisant le fichier JSON", http.StatusInternalServerError)
+		return
+	}
+
+	// Désérialiser le JSON dans une slice de PersoData
+	var jsonData []backend.PersoData
+	err = json.Unmarshal(jsonFile, &jsonData)
+	if err != nil {
+		fmt.Println("Erreur en désérialisant les données JSON :", err)
+		http.Error(w, "Erreur en désérialisant les données JSON", http.StatusInternalServerError)
+		return
+	}
+
+	// Générer un nouvel ID unique
+	rand.Seed(time.Now().UnixNano())
+	var newID int
+
+	ids, err := backend.GetArticleIDs(jsonData)
+	if err != nil {
+		fmt.Println("Erreur en obtenant les IDs :", err)
+		http.Error(w, "Erreur en obtenant les IDs", http.StatusInternalServerError)
+		return
+	}
+
+	maxAttempts := 100
+	for attempt := 0; attempt < maxAttempts; attempt++ {
+		newID = rand.Intn(8999) + 1000
+		if !backend.IsIDPresent(newID, ids) {
+			break
+		}
+	}
+
+	// Créer un nouvel article avec le nouvel ID
+	nouvelArticle := backend.PersoData{
+		ID:     newID,
+		Nom:    nom,
+		Prenom: prenom,
+		Age:    age,
+		Taille: taille,
+		Poids:  poids,
+		Sexe: Sexe,
+		Image: Img,
+
+	}
+
+	// Ajouter le nouvel article à la slice de données
+	jsonData = append(jsonData, nouvelArticle)
+
+	// Sérialiser la slice de données mise à jour en JSON avec indentation
+	updatedData, err := json.MarshalIndent(jsonData, "", "  ")
+	if err != nil {
+		fmt.Println("Erreur en convertissant les données en JSON :", err)
+		http.Error(w, "Erreur en convertissant les données en JSON", http.StatusInternalServerError)
+		return
+	}
+
+	// Écrire les données mises à jour dans le fichier JSON
+	err = os.WriteFile("perso.json", updatedData, 0644)
+	if err != nil {
+		fmt.Println("Erreur en écrivant dans le fichier JSON :", err)
+		http.Error(w, "Erreur en écrivant dans le fichier JSON", http.StatusInternalServerError)
+		return
+	}
+
+	// Rediriger vers la page de liste après l'ajout
+	http.Redirect(w, r, "/list", http.StatusSeeOther)
 }

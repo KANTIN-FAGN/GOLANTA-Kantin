@@ -2,10 +2,10 @@ package routeur
 
 import (
 	"fmt"
+	"golantah/backend"
+	controller "golantah/controller"
 	"log"
 	"net/http"
-	"golantah/controller"
-	"golantah/backend"
 )
 
 func Initserv() {
@@ -20,7 +20,9 @@ func Initserv() {
 	http.HandleFunc("/form", controller.ForumPage)
 	http.HandleFunc("/list", controller.ListPage)
 	http.HandleFunc("/delete", backend.DeletePage)
-	http.HandleFunc("/submit", backend.RecuDatas)
+	http.HandleFunc("/submit", controller.RecuDatas)
+	http.HandleFunc("/modif", backend.DisplayModif)
+	http.HandleFunc("/modif/treatment", backend.TreatmentModif)
 
 	http.HandleFunc("/", controller.DefaultHandler)
 
