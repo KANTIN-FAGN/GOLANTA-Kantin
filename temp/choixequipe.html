@@ -1,0 +1,52 @@
+{{define "equipe"}}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/equipe.css">
+  </head>
+  <body>
+    <section class="global">
+      <div>
+        <p>Choissez l'équipe de votre aventurier</p>
+      </div>
+      <div class="choix">
+        <form action="/treatment/equipe/verte" method="post">
+          <button type="submit" class="vert">
+            <img src="../static/img/site/drapeau-vert.png" alt="" />
+          </button>
+          <div>
+            <p>EQUIPE VERTE</p>
+          </div>
+        </form>
+        <form action="/treatment/equipe/rouge" method="post">
+          <button type="submit" class="femme">
+            <img src="../static/img/site/drapeau-rouge.png" alt="" />
+          </button>
+          <div>
+            <p>EQUIPE ROUGE</p>
+          </div>
+        </form>
+        <form action="/treatment/equipe/jaune" method="post">
+          <button type="submit" class="femme">
+            <img src="../static/img/site/drapeau-jaune.png" alt="" />
+          </button>
+          <div>
+            <p>EQUIPE JAUNE</p>
+          </div>
+        </form>
+        <form action="/treatment/equipe/bleu" method="post">
+          <button type="submit" class="femme">
+            <img src="../static/img/site/drapeau-bleu.png" alt="" />
+          </button>
+          <div>
+            <p>EQUIPE BLEU</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>
+{{end}}

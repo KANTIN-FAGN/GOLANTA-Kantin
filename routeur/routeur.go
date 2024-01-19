@@ -23,6 +23,11 @@ func Initserv() {
 	http.HandleFunc("/submit", controller.RecuDatas)
 	http.HandleFunc("/modif", backend.DisplayModif)
 	http.HandleFunc("/modif/treatment", backend.TreatmentModif)
+	http.HandleFunc("/treatment/equipe/verte", controller.InitEquipeVerte)
+	http.HandleFunc("/treatment/equipe/jaune", controller.InitEquipeJaune)
+	http.HandleFunc("/treatment/equipe/rouge", controller.InitEquipeRouge)
+	http.HandleFunc("/treatment/equipe/bleu", controller.InitEquipeBleu)
+	http.HandleFunc("/choix/equipe", controller.DisplayChoixEquipe)
 
 	http.HandleFunc("/", controller.DefaultHandler)
 

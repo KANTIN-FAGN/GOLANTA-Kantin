@@ -13,6 +13,7 @@ import (
 
 var Sexe string
 var Img string
+var Equipe string
 
 // DefaultHandler est la fonction qui redirige vers la page 404 en cas de route inconnue
 func DefaultHandler(w http.ResponseWriter, r *http.Request) {
@@ -26,6 +27,10 @@ func DefaultHandler(w http.ResponseWriter, r *http.Request) {
 
 func IndexPage(w http.ResponseWriter, r *http.Request) {
 	templates.Temp.ExecuteTemplate(w, "index", nil)
+}
+
+func DisplayChoixEquipe(w http.ResponseWriter, r *http.Request) {
+	templates.Temp.ExecuteTemplate(w, "equipe", nil)
 }
 
 func DisplayChoix(w http.ResponseWriter, r *http.Request) {
@@ -59,17 +64,36 @@ func ListPage(w http.ResponseWriter, r *http.Request) {
 func InitSexeHomme(w http.ResponseWriter, r *http.Request) {
 	Sexe = "Homme"
 	Img = "/static/img/site/homme.png"
-	http.Redirect(w, r, "/form", http.StatusMovedPermanently)
+	http.Redirect(w, r, "/choix/equipe", http.StatusMovedPermanently)
 }
 
 func InitSexeFemme(w http.ResponseWriter, r *http.Request) {
 	Sexe = "Femme"
 	Img = "/static/img/site/femme.png"
-	http.Redirect(w, r, "/form", http.StatusMovedPermanently)
+	http.Redirect(w, r, "/choix/equipe", http.StatusMovedPermanently)
+}
+
+func InitEquipeVerte(w http.ResponseWriter, r *http.Request) {
+	Equipe = "Verte"
+	http.Redirect(w, r, "/form", http.StatusSeeOther)
+}
+
+func InitEquipeBleu(w http.ResponseWriter, r *http.Request) {
+	Equipe = "Bleu"
+	http.Redirect(w, r, "/form", http.StatusSeeOther)
+}
+
+func InitEquipeRouge(w http.ResponseWriter, r *http.Request) {
+	Equipe = "Rouge"
+	http.Redirect(w, r, "/form", http.StatusSeeOther)
+}
+
+func InitEquipeJaune(w http.ResponseWriter, r *http.Request) {
+	Equipe = "Jaune"
+	http.Redirect(w, r, "/form", http.StatusSeeOther)
 }
 
 func RecuDatas(w http.ResponseWriter, r *http.Request) {
-	r.ParseMultipartForm(10 << 20)
 
 	fmt.Println("here")
 
@@ -77,7 +101,9 @@ func RecuDatas(w http.ResponseWriter, r *http.Request) {
 	prenom := r.FormValue("prenom")
 	age := r.FormValue("age")
 	taille := r.FormValue("taille")
-	poids := r.FormValue("poids") // Correction du nom du champ
+	poids := r.FormValue("poids")
+	physique := r.FormValue("physique")
+	vitesse := r.FormValue("vitesse") // Correction du nom du champ
 
 	fmt.Println(nom)
 	fmt.Println(prenom)
@@ -120,15 +146,17 @@ func RecuDatas(w http.ResponseWriter, r *http.Request) {
 
 	// Créer un nouvel article avec le nouvel ID
 	nouvelArticle := backend.PersoData{
-		ID:     newID,
-		Nom:    nom,
-		Prenom: prenom,
-		Age:    age,
-		Taille: taille,
-		Poids:  poids,
-		Sexe: Sexe,
-		Image: Img,
-
+		ID:       newID,
+		Nom:      nom,
+		Prenom:   prenom,
+		Age:      age,
+		Taille:   taille,
+		Poids:    poids,
+		Sexe:     Sexe,
+		Image:    Img,
+		Equipe:   Equipe,
+		Physique: physique,
+		Vit:      vitesse,
 	}
 
 	// Ajouter le nouvel article à la slice de données

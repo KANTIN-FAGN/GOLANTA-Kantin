@@ -1,28 +1,45 @@
+@font-face {
+  font-family: "Moko";
+  src: url("http://localhost:8080/static/font/Mokoto Demo.ttf")
+    format("truetype");
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
 }
 
-@font-face {
-  font-family: "SF Ironsides Bold";
-  src: url("http://localhost:8080/static/font/SF Ironsides Bold.ttf") format("truetype");
-  font-style: normal;
-}
-
 body {
-  background-image: url("../img/site/camp.jpg");
+  height: 100vh;
+  width: 100vw;
+  background-image: url("../img/site/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  overflow: hidden;
-
+  background-attachment: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "SF Ironsides Bold", sans-serif;
-  overflow: hidden;
   text-shadow: 2px 2px 2px black;
   color: #ffffff;
   font-size: 35px;
+  font-family: "Moko";
+}
+
+.perso-global {
+  width: 8em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.global {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 body::before {
@@ -32,68 +49,19 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.3);
   z-index: -1;
 }
 
-.perso-global {
-  width: 600px;
-  height: 400px;
-  background-image: url(../img/site/panneau.png);
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-}
-
-.info-perso {
-  display: flex;
-  flex-direction: column;
-}
-
-.global {
-  height: 100vh;
-  width: 100%;
-}
-
-.nom-prenom {
-  display: flex;
-  gap: 25px;
-}
-
-.perso {
-  display: flex;
-  translate: 80px;
-  gap: 50px;
-}
-
-.supp a {
-  width: 50px;
-  height: 50px;
-  overflow: hidden;
-
-}
-
-.supp a .delete-button {
-  width: 100%;
-  height: 100%;
-  background-image: url('../img/site/poubelle.png');
-  background-size: 100% 100%;
-  background-size: contain;
-  background-repeat: no-repeat;
-  border: none;
-  background-color: transparent;
-}
-
-.supp a:hover .delete-button {
-  background-image: url('../img/site/delete.png');
-}
-
 .supp-modif {
+  background-color: #f5f5f5;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50px;
+  justify-content: space-evenly;
+  width: 4em;
+  height: 2em;
+  border-radius: 0px 0px 15px 15px;
 }
 
 .supp {
@@ -110,13 +78,12 @@ body::before {
   width: 50px;
   height: 50px;
   overflow: hidden;
-
 }
 
 .modif a .modifier {
   width: 100%;
   height: 100%;
-  background-image: url('../img/site/modif.png');
+  background-image: url("../img/site/modif.png");
   background-size: 100% 100%;
   background-size: contain;
   background-repeat: no-repeat;
@@ -125,5 +92,214 @@ body::before {
 }
 
 .modif a:hover .modifier {
-  background-image: url('../img/site/modifier.png');
+  background-image: url("../img/site/modifier.png");
+}
+
+.card {
+  width: 190px;
+  height: 254px;
+  position: relative;
+  outline: 6px solid #f5f5f5;
+  border-radius: 8px;
+  line-height: 150%;
+  padding: 16px;
+  /* background: #ff930f; */
+  background-blend-mode: multiply;
+  /* background: linear-gradient(to top, #ffef0f, #ffcc33); */
+  transition: background-color 1s ease-in-out;
+  overflow: hidden;
+}
+
+.card-front {
+  bottom: 16px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.card-back {
+  transform: translateX(120%);
+  transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+/*Text*/
+.title {
+  font-size: 1.3rem;
+}
+/*Text divider*/
+.title::after {
+  content: "";
+  display: block;
+  width: 50%;
+  border-radius: 50%;
+  height: 2px;
+  margin: 2px auto;
+  background-color: #ffffff;
+}
+
+/*Hover*/
+.card:hover {
+  background-color: #1b1b1b25;
+}
+
+.card:hover .card-front {
+  transform: translateX(-100%);
+}
+
+.card:hover .card-back {
+  transform: translateX(0);
+}
+
+.card-back p {
+  font-size: 1.3rem;
+  height: 45px;
+}
+
+
+.Bleu {
+  background: #0fbbff;
+  background: linear-gradient(to top, #0fbbff, #338bff);
+}
+
+.bleu a {
+  text-decoration: none;
+  color: #0fbbff;
+}
+
+.Jaune {
+  background: #ff930f;
+  background: linear-gradient(to top, #ffef0f, #ffcc33);
+}
+
+.jaune a {
+  text-decoration: none;
+  color: #ffef0f;
+}
+
+.Rouge {
+  background: #ff0000;
+  background: linear-gradient(to top, #ff0000, #ff6333);
+}
+
+.rouge a {
+  text-decoration: none;
+  color: #ff0000;
+}
+
+.Verte {
+  background: #14c22b;
+  background: linear-gradient(to top, #14c22b, #33ff81);
+}
+
+.verte a {
+  text-decoration: none;
+  color: #14c22b;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  width: 80%;
+  display: flex ;
+  justify-content: space-evenly;
+}
+
+.editBtn {
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  border: none;
+  background-color: rgb(93, 93, 116);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.123);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+.editBtn::before {
+  content: "";
+  width: 200%;
+  height: 200%;
+  background-color: rgb(102, 102, 141);
+  position: absolute;
+  z-index: 1;
+  transform: scale(0);
+  transition: all 0.3s;
+  border-radius: 50%;
+  filter: blur(10px);
+}
+.editBtn:hover::before {
+  transform: scale(1);
+}
+.editBtn:hover {
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.336);
+}
+
+.editBtn svg {
+  height: 17px;
+  fill: white;
+  z-index: 3;
+  transition: all 0.2s;
+  transform-origin: bottom;
+}
+.editBtn:hover svg {
+  transform: rotate(-15deg) translateX(5px);
+}
+.editBtn::after {
+  content: "";
+  width: 25px;
+  height: 1.5px;
+  position: absolute;
+  bottom: 19px;
+  left: -5px;
+  background-color: white;
+  border-radius: 2px;
+  z-index: 2;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease-out;
+}
+.editBtn:hover::after {
+  transform: scaleX(1);
+  left: 0px;
+  transform-origin: right;
+}
+
+.bin-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  background-color: rgb(255, 95, 95);
+  cursor: pointer;
+  border: 3px solid rgb(255, 95, 95);
+  transition-duration: 0.3s;
+}
+.bin-bottom {
+  width: 15px;
+}
+.bin-top {
+  width: 17px;
+  transform-origin: right;
+  transition-duration: 0.3s;
+}
+.bin-button:hover .bin-top {
+  transform: rotate(45deg);
+}
+.bin-button:hover {
+  background-color: rgb(255, 0, 0);
+}
+.bin-button:active {
+  transform: scale(0.9);
 }

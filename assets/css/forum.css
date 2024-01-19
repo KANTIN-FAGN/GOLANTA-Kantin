@@ -1,244 +1,121 @@
 @font-face {
-  font-family: "SF Ironsides Bold";
-  src: url("http://localhost:8080/static/font/SF Ironsides Bold.ttf")
+  font-family: "Moko";
+  src: url("http://localhost:8080/static/font/Mokoto Demo.ttf")
     format("truetype");
   font-style: normal;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  background-image: url("../img/site/plage.jpg");
+  height: 100vh;
+  width: 100vw;
+  background-image: url("../img/site/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  overflow: hidden;
-
+  background-attachment: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "SF Ironsides Bold", sans-serif;
-  overflow: hidden;
   text-shadow: 2px 2px 2px black;
   color: #ffffff;
   font-size: 35px;
-}
-
-body::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.7
-  ); /* Opacité réglable avec le dernier paramètre */
-  z-index: -1;
-}
-
-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-  gap: 50px;
-}
-
-.nom-prenom {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.tout-le-reste {
-  width: 70%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  gap: 50px;
-}
-
-.nom input,
-.prenom input,
-.age input,
-.taille input,
-.poids input {
-  height: 100px;
-  font-size: 25px;
-  background: none;
-  border: none;
-  background-image: url("../img/site/planche.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding-top: 15px;
-  padding-left: 35px;
-}
-
-.nom input::placeholder,
-.prenom input::placeholder,
-.age input::placeholder,
-.taille input::placeholder,
-.poids input::placeholder {
-  font-family: "SF Ironsides Bold", sans-serif;
-  overflow: hidden;
-  text-shadow: 2px 2px 2px black;
-  color: #a1a1a1;
-}
-
-.prenom input:focus,
-.nom input:focus,
-.age input:focus,
-.taille input:focus,
-.poids input:focus {
-  outline: none;
-}
-
-.input-prenom,
-.input-nom,
-.input-age,
-.input-taille,
-.input-poids {
-  width: 300px;
-  font-family: "SF Ironsides Bold", sans-serif;
-  overflow: hidden;
-  text-shadow: 2px 2px 2px black;
-  color: #ffffff;
+  font-family: "Moko";
 }
 
 button {
-  position: relative;
-  padding: 15px 45px;
-  background: #fec195;
-  font-size: 17px;
-  font-weight: 500;
-  color: #181818;
-  cursor: pointer;
-  border: 1px solid #fec195;
-  border-radius: 8px;
-  filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.2));
+  font-family: inherit;
+  font-size: 18px;
+  background: linear-gradient(to bottom, #4dc7d9 0%,#66a6ff 100%);
+  color: white;
+  padding: 0.8em 1.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
 }
 
 button:hover {
-  border: 1px solid #f3b182;
-  background: linear-gradient(
-    85deg,
-    #fec195,
-    #fcc196,
-    #fabd92,
-    #fac097,
-    #fac39c
-  );
-  animation: wind 2s ease-in-out infinite;
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
 }
 
-@keyframes wind {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  0% {
-    background-position: 50% 100%;
-  }
-
-  0% {
-    background-position: 0% 50%;
-  }
+button:active {
+  transform: scale(0.95);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.icon-1 {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 25px;
-  transform-origin: 0 0;
-  transform: rotate(10deg);
-  transition: all 0.5s ease-in-out;
-  filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.3));
+button span {
+  display: block;
+  margin-left: 0.4em;
+  transition: all 0.3s;
 }
 
-button:hover .icon-1 {
-  animation: slay-1 3s cubic-bezier(0.52, 0, 0.58, 1) infinite;
-  transform: rotate(10deg);
-}
-
-@keyframes slay-1 {
-  0% {
-    transform: rotate(10deg);
-  }
-
-  50% {
-    transform: rotate(-5deg);
-  }
-
-  100% {
-    transform: rotate(10deg);
-  }
-}
-
-.icon-2 {
-  position: absolute;
-  top: 0;
-  left: 25px;
-  width: 12px;
-  transform-origin: 50% 0;
-  transform: rotate(10deg);
-  transition: all 1s ease-in-out;
-  filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.5));
-}
-
-button:hover .icon-2 {
-  animation: slay-2 3s cubic-bezier(0.52, 0, 0.58, 1) 1s infinite;
-  transform: rotate(0);
-}
-
-@keyframes slay-2 {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  50% {
-    transform: rotate(15deg);
-  }
-
-  100% {
-    transform: rotate(0);
-  }
-}
-
-.icon-3 {
-  position: absolute;
-  top: 0;
-  left: 0;
+button svg {
   width: 18px;
-  transform-origin: 50% 0;
-  transform: rotate(-5deg);
-  transition: all 1s ease-in-out;
-  filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.5));
+  height: 18px;
+  fill: white;
+  transition: all 0.3s;
 }
 
-button:hover .icon-3 {
-  animation: slay-3 2s cubic-bezier(0.52, 0, 0.58, 1) 1s infinite;
-  transform: rotate(0);
-}
-
-@keyframes slay-3 {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  50% {
-    transform: rotate(-5deg);
-  }
-
-  100% {
-    transform: rotate(0);
-  }
-}
-
-.bouton-global {
+button .svg-wrapper {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-right: 0.5em;
+  transition: all 0.3s;
+}
+
+button:hover .svg-wrapper {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+button:hover svg {
+  transform: rotate(45deg);
+}
+
+
+section form .tout-le-reste input,
+section form .nom-prenom input {
+  width: 210px;
+  height: 50px;
+  padding: 0 16px;
+  background: #212121;
+  border-radius: 4px;
+  border: 1px solid #fe4567;
+  color: #f9f9f9;
+  animation: shake_541 0.14s 3;
+}
+
+section form button input {
+  display: none;
+}
+
+input:valid {
+  border-color: #45feaf;
+  animation: none;
+}
+
+@keyframes shake_541 {
+  0%, 100% {
+    translate: 0;
+  }
+
+  25% {
+    translate: 8px 0;
+  }
+
+  75% {
+    translate: -8px 0;
+  }
 }
