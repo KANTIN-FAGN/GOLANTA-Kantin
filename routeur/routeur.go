@@ -28,6 +28,7 @@ func Initserv() {
 	http.HandleFunc("/treatment/equipe/rouge", controller.InitEquipeRouge)
 	http.HandleFunc("/treatment/equipe/bleu", controller.InitEquipeBleu)
 	http.HandleFunc("/choix/equipe", controller.DisplayChoixEquipe)
+	http.HandleFunc("/equipe", controller.DisplayEquipe)
 
 	http.HandleFunc("/", controller.DefaultHandler)
 

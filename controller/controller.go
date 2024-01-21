@@ -8,6 +8,7 @@ import (
 	"math/rand"
 	"net/http"
 	"os"
+	"strings"
 	"time"
 )
 
@@ -180,4 +181,33 @@ func RecuDatas(w http.ResponseWriter, r *http.Request) {
 
 	// Rediriger vers la page de liste après l'ajout
 	http.Redirect(w, r, "/list", http.StatusSeeOther)
+}
+
+func DisplayEquipe(w http.ResponseWriter, r *http.Request) {
+
+	equipe := r.FormValue("equipe")
+
+	fileData, fileErr := os.ReadFile("perso.json")
+	if fileErr != nil {
+		fmt.Println("Erreur en lisant le fichier JSON :", fileErr)
+		return
+	}
+
+	var dataDecode []backend.PersoData
+	errDecode := json.Unmarshal(fileData, &dataDecode)
+	if errDecode != nil {
+		fmt.Println("Erreur en désérialisant les données JSON :", errDecode)
+		return
+	}
+
+	var dataEquipe []backend.PersoData
+	for _, perso := range dataDecode {
+		if strings.EqualFold(perso.Equipe, equipe) {
+			dataEquipe = append(dataEquipe, perso)
+		}
+	}
+
+	fmt.Println(dataEquipe)
+
+	templates.Temp.ExecuteTemplate(w, "list", dataEquipe)
 }
