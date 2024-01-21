@@ -1,7 +1,6 @@
 @font-face {
   font-family: "Moko";
-  src: url("http://localhost:8080/static/font/Mokoto Demo.ttf")
-    format("truetype");
+  src: url("http://localhost:8080/static/font/Mokoto Demo.ttf") format("truetype");
   font-style: normal;
 }
 
@@ -29,7 +28,7 @@ body {
 button {
   font-family: inherit;
   font-size: 18px;
-  background: linear-gradient(to bottom, #4dc7d9 0%,#66a6ff 100%);
+  background: linear-gradient(to bottom, #4dc7d9 0%, #66a6ff 100%);
   color: white;
   padding: 0.8em 1.2em;
   display: flex;
@@ -107,7 +106,9 @@ input:valid {
 }
 
 @keyframes shake_541 {
-  0%, 100% {
+
+  0%,
+  100% {
     translate: 0;
   }
 
@@ -118,4 +119,38 @@ input:valid {
   75% {
     translate: -8px 0;
   }
+}
+
+section {
+  width: 35%;
+}
+
+.nom-prenom {
+  margin-top: 35px;
+  display: flex;
+  gap: 50px;
+  justify-content: space-evenly;
+}
+
+.tout-le-reste {
+  margin-bottom: 35px;
+  margin-top: 35px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.btn-cont {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.titre {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

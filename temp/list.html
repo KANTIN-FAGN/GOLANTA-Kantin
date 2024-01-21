@@ -11,28 +11,43 @@
 
 <body>
   <header>
-    <div class="bleu">
-      <a href="equipe?equipe=bleu">
-        <p>EQUIPE BLEU</p>
-      </a>
-    </div>
-    <div class="rouge">
-      <a href="equipe?equipe=rouge">
-        <p>EQUIPE ROUGE</p>
-      </a>
+    <a href="accueil">
+      <div class="home">
+        <button class="home-button">ACCUEIL</button>
+      </div>
+    </a>
+    <div class="equipe-choix">
+      <div class="bleu">
+        <a href="equipe?equipe=bleu">
+          <p>EQUIPE BLEU</p>
+        </a>
+      </div>
+      <div class="rouge">
+        <a href="equipe?equipe=rouge">
+          <p>EQUIPE ROUGE</p>
+        </a>
 
-    </div>
-    <div class="jaune">
-      <a href="equipe?equipe=jaune">
-        <p>EQUIPE JAUNE</p>
-      </a>
+      </div>
+      <div class="jaune">
+        <a href="equipe?equipe=jaune">
+          <p>EQUIPE JAUNE</p>
+        </a>
 
+      </div>
+      <div class="verte">
+        <a href="equipe?equipe=verte">
+          <p>EQUIPE VERTE</p>
+        </a>
+      </div>
     </div>
-    <div class="verte">
-      <a href="equipe?equipe=verte">
-        <p>EQUIPE VERTE</p>
+    <div>
+      <a href="choix">
+        <div class="home">
+          <button class="home1-button">AJOUTER</button>
+        </div>
       </a>
     </div>
+
   </header>
   <section class="global">
     {{range . }}
@@ -89,13 +104,6 @@
       </div>
     </div>
     {{end}}
-    <section>
-      <div class="bouton-global">
-        <div class="container1">
-          <div class="btn1"><a href="choix">CREER</a></div>
-        </div>
-      </div>
-    </section>
   </section>
 </body>
 

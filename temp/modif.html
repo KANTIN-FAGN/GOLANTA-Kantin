@@ -1,154 +1,82 @@
 {{define "modif"}}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MODIFICATION</title>
-    <link rel="stylesheet" href="../static/css/forum.css" />
-  </head>
 
-  <body>
-    <section>
-      <form
-        id="ajoute_article"
-        action="http://localhost:8080/modif/treatment?id={{.ID}}"
-        method="POST"
-        enctype="multipart/form-data"
-      >
-        <div>
-          <p>MODIFICATION D'UN NOUVEAU PERSONNAGE</p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MODIFICATION</title>
+  <link rel="stylesheet" href="../static/css/forum.css" />
+</head>
+
+<body>
+  <section>
+    <form id="ajoute_article" action="http://localhost:8080/modif/treatment?id={{.ID}}" method="POST"
+      enctype="multipart/form-data">
+      <div class="titre">
+        <p>MODIFICATION D'UN NOUVEAU PERSONNAGE</p>
+      </div>
+      <div class="nom-prenom">
+        <div class="prenom">
+          <label for="prenom"></label>
+          <input value="{{.Prenom}}" class="input-prenom" placeholder="PRENOM ( 15 caractères )" type="text" id="prenom"
+            name="prenom" minlength="1" maxlength="15" />
         </div>
-        <div class="nom-prenom">
-          <div class="prenom">
-            <label for="prenom"></label>
-            <input
-              value="{{.Prenom}}"
-              class="input-prenom"
-              placeholder="PRENOM ( 15 caractères )"
-              type="text"
-              id="prenom"
-              name="prenom"
-              minlength="1"
-              maxlength="15"
-            />
-          </div>
-          <div class="nom">
-            <label for="nom"></label>
-            <input
-              value="{{.Nom}}"
-              class="input-nom"
-              placeholder="NOM ( 15 caractères )"
-              type="text"
-              id="nom"
-              name="nom"
-              minlength="1"
-              maxlength="15"
-            />
-          </div>
+        <div class="nom">
+          <label for="nom"></label>
+          <input value="{{.Nom}}" class="input-nom" placeholder="NOM ( 15 caractères )" type="text" id="nom" name="nom"
+            minlength="1" maxlength="15" />
         </div>
-        <div class="tout-le-reste">
-          <div class="age">
-            <label for="age"></label>
-            <input
-              value="{{.Age}}"
-              class="input-age"
-              type="number"
-              placeholder="AGE ( 0 - 99 )"
-              id="age"
-              min="0"
-              max="99"
-              name="age"
-              minlength="1"
-              maxlength="2"
-            />
-          </div>
-          <div class="taille">
-            <label for="taile"></label>
-            <input
-              value="{{.Taille}}"
-              class="input-taille"
-              type="number"
-              placeholder="TAILLE ( 200 cm )"
-              id="taille"
-              min="130"
-              max="200"
-              name="taille"
-              minlength="1"
-              maxlength="3"
-            />
-          </div>
-          <div class="poids">
-            <label for="poids"></label>
-            <input
-              value="{{.Poids}}"
-              class="input-poids"
-              type="number"
-              placeholder="poids ( 180 kg )"
-              id="poids"
-              id="poids"
-              min="20"
-              max="180"
-              name="poids"
-              minlength="1"
-              maxlength="3"
-            />
-          </div>
-          <div class="Physique">
-            <label for="physique">
-              <input
-                required=""
-                value="{{.Physique}}"
-                type="number"
-                placeholder="PHYSIQUE ( 100 max )"
-                id="physique"
-                name="physique"
-                min="1"
-                max="100"
-                minlength="1"
-                maxlength="3"
-              />
-            </label>
-          </div>
-          <div class="vitesse">
-            <label for="vitesse">
-              <input
-                required=""
-                value="{{.Vit}}"
-                type="number"
-                placeholder="VITESSE ( 100 max )"
-                id="vitesse"
-                name="vitesse"
-                min="1"
-                max="100"
-                minlength="1"
-                maxlength="3"
-              />
-            </label>
-          </div>
+      </div>
+      <div class="tout-le-reste">
+        <div class="age">
+          <label for="age"></label>
+          <input value="{{.Age}}" class="input-age" type="number" placeholder="AGE ( 0 - 99 )" id="age" min="0" max="99"
+            name="age" minlength="1" maxlength="2" />
         </div>
+        <div class="taille">
+          <label for="taile"></label>
+          <input value="{{.Taille}}" class="input-taille" type="number" placeholder="TAILLE ( 200 cm )" id="taille"
+            min="130" max="200" name="taille" minlength="1" maxlength="3" />
+        </div>
+        <div class="poids">
+          <label for="poids"></label>
+          <input value="{{.Poids}}" class="input-poids" type="number" placeholder="poids ( 180 kg )" id="poids"
+            id="poids" min="20" max="180" name="poids" minlength="1" maxlength="3" />
+        </div>
+        <div class="Physique">
+          <label for="physique">
+            <input required="" value="{{.Physique}}" type="number" placeholder="PHYSIQUE ( 100 max )" id="physique"
+              name="physique" min="1" max="100" minlength="1" maxlength="3" />
+          </label>
+        </div>
+        <div class="vitesse">
+          <label for="vitesse">
+            <input required="" value="{{.Vit}}" type="number" placeholder="VITESSE ( 100 max )" id="vitesse"
+              name="vitesse" min="1" max="100" minlength="1" maxlength="3" />
+          </label>
+        </div>
+      </div>
+      <div class="btn-cont">
         <button>
           <div class="svg-wrapper-1">
             <input type="submit" value="Ajouter" />
             <div class="svg-wrapper">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                width="24"
-                height="24"
-              >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                 <path fill="none" d="M0 0h24v24H0z"></path>
-                <path
-                  fill="currentColor"
-                  d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
-                ></path>
+                <path fill="currentColor"
+                  d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z">
+                </path>
               </svg>
             </div>
           </div>
           <span>MODIFIER</span>
         </button>
-      </form>
-    </section>
-  </body>
+      </div>
+
+    </form>
+  </section>
+</body>
+
 </html>
 {{end}}
