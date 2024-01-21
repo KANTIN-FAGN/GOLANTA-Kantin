@@ -1,1 +1,54 @@
-[{"id":2661,"nom":"Fagniart","prenom":"kantin","age":"20","taille":"185","poids":"75","sexe":"Homme","image":"/static/img/site/homme.png","equipe":"Verte","physique":"86","vitesse":"89"},{"id":7317,"nom":"UwU","prenom":"cyril","age":"22","taille":"168","poids":"56","sexe":"Homme","image":"/static/img/site/homme.png","equipe":"Rouge","physique":"78","vitesse":"89"},{"id":7160,"nom":"Harel","prenom":"Marin","age":"19","taille":"156","poids":"180","sexe":"Homme","image":"/static/img/site/homme.png","equipe":"Bleu","physique":"99","vitesse":"15"},{"id":8045,"nom":"Lapuyade","prenom":"Telma","age":"19","taille":"168","poids":"47","sexe":"Femme","image":"/static/img/site/femme.png","equipe":"Jaune","physique":"14","vitesse":"50"},{"id":5999,"nom":"PIVOT","prenom":"Nathanael","age":"18","taille":"176","poids":"54","sexe":"Homme","image":"/static/img/site/homme.png","equipe":"Bleu","physique":"86","vitesse":"95"}]
+[
+  {
+    "id": 4568,
+    "nom": "FAGNIART",
+    "prenom": "Kantin",
+    "age": "18",
+    "taille": "185",
+    "poids": "75",
+    "sexe": "Homme",
+    "image": "/static/img/site/homme.png",
+    "equipe": "Verte",
+    "physique": "85",
+    "vitesse": "95"
+  },
+  {
+    "id": 8943,
+    "nom": "LAPUYADE",
+    "prenom": "Telma",
+    "age": "19",
+    "taille": "168",
+    "poids": "47",
+    "sexe": "Femme",
+    "image": "/static/img/site/femme.png",
+    "equipe": "Rouge",
+    "physique": "25",
+    "vitesse": "56"
+  },
+  {
+    "id": 7722,
+    "nom": "DANTE",
+    "prenom": "Julien",
+    "age": "18",
+    "taille": "190",
+    "poids": "80",
+    "sexe": "Homme",
+    "image": "/static/img/site/homme.png",
+    "equipe": "Jaune",
+    "physique": "92",
+    "vitesse": "72"
+  },
+  {
+    "id": 9410,
+    "nom": "HERRY",
+    "prenom": "Arthur",
+    "age": "18",
+    "taille": "180",
+    "poids": "64",
+    "sexe": "Homme",
+    "image": "/static/img/site/homme.png",
+    "equipe": "Bleu",
+    "physique": "65",
+    "vitesse": "73"
+  }
+]
